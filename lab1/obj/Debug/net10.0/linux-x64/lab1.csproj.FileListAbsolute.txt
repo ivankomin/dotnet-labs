@@ -1,0 +1,14 @@
+/home/ivkins/Documents/dotnet_shi/lab1/obj/Debug/net10.0/linux-x64/lab1.GeneratedMSBuildEditorConfig.editorconfig
+/home/ivkins/Documents/dotnet_shi/lab1/obj/Debug/net10.0/linux-x64/lab1.AssemblyInfoInputs.cache
+/home/ivkins/Documents/dotnet_shi/lab1/obj/Debug/net10.0/linux-x64/lab1.AssemblyInfo.cs
+/home/ivkins/Documents/dotnet_shi/lab1/obj/Debug/net10.0/linux-x64/lab1.csproj.CoreCompileInputs.cache
+/home/ivkins/Documents/dotnet_shi/lab1/bin/Debug/net10.0/linux-x64/lab1
+/home/ivkins/Documents/dotnet_shi/lab1/bin/Debug/net10.0/linux-x64/lab1.deps.json
+/home/ivkins/Documents/dotnet_shi/lab1/bin/Debug/net10.0/linux-x64/lab1.runtimeconfig.json
+/home/ivkins/Documents/dotnet_shi/lab1/bin/Debug/net10.0/linux-x64/lab1.dll
+/home/ivkins/Documents/dotnet_shi/lab1/bin/Debug/net10.0/linux-x64/lab1.pdb
+/home/ivkins/Documents/dotnet_shi/lab1/obj/Debug/net10.0/linux-x64/lab1.dll
+/home/ivkins/Documents/dotnet_shi/lab1/obj/Debug/net10.0/linux-x64/refint/lab1.dll
+/home/ivkins/Documents/dotnet_shi/lab1/obj/Debug/net10.0/linux-x64/lab1.pdb
+/home/ivkins/Documents/dotnet_shi/lab1/obj/Debug/net10.0/linux-x64/lab1.genruntimeconfig.cache
+/home/ivkins/Documents/dotnet_shi/lab1/obj/Debug/net10.0/linux-x64/ref/lab1.dll

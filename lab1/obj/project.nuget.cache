@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Yzn7iSs/awc=",
+  "success": true,
+  "projectFilePath": "/home/ivkins/Documents/dotnet_shi/lab1/lab1.csproj",
+  "expectedPackageFiles": [
+    "/home/ivkins/.nuget/packages/microsoft.netcore.app.host.linux-x64/10.0.3/microsoft.netcore.app.host.linux-x64.10.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
