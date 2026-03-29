@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "TytgZhD/8YI=",
+  "success": true,
+  "projectFilePath": "/home/ivkins/Documents/dotnet-labs/lab2/lab2.csproj",
+  "expectedPackageFiles": [
+    "/home/ivkins/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.4/microsoft.aspnetcore.app.ref.10.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}

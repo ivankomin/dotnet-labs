@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MusicPlatform>
+  <Artist Name="Nirvana">
+    <Album Title="Nevermind" Year="1991" ListenCount="1500000">
+      <Song Title="Smells Like Teen Spirit" Duration="301" Plays="600000" Rating="5" />
+      <Song Title="Come As You Are" Duration="219" Plays="450000" Rating="4.8" />
+      <Song Title="Lithium" Duration="257" Plays="350000" Rating="4.7" />
+      <Song Title="Polly" Duration="177" Plays="150000" Rating="4.2" />
+    </Album>
+    <Album Title="In Utero" Year="1993" ListenCount="1100000">
+      <Song Title="Heart-Shaped Box" Duration="281" Plays="400000" Rating="4.9" />
+      <Song Title="All Apologies" Duration="231" Plays="300000" Rating="4.6" />
+      <Song Title="Rape Me" Duration="170" Plays="250000" Rating="4.4" />
+    </Album>
+  </Artist>
+  <Artist Name="Linkin Park">
+    <Album Title="Hybrid Theory" Year="2000" ListenCount="2500000">
+      <Song Title="In the End" Duration="216" Plays="1200000" Rating="5" />
+      <Song Title="Crawling" Duration="209" Plays="800000" Rating="4.9" />
+      <Song Title="One Step Closer" Duration="157" Plays="500000" Rating="4.7" />
+      <Song Title="Papercut" Duration="184" Plays="400000" Rating="4.6" />
+    </Album>
+    <Album Title="Meteora" Year="2003" ListenCount="800000">
+      <Song Title="Numb" Duration="187" Plays="950000" Rating="5" />
+      <Song Title="Somewhere I Belong" Duration="213" Plays="600000" Rating="4.8" />
+      <Song Title="Faint" Duration="162" Plays="700000" Rating="4.9" />
+    </Album>
+  </Artist>
+  <Artist Name="Pink Floyd">
+    <Album Title="The Dark Side of the Moon" Year="1973" ListenCount="3000000">
+      <Song Title="Time" Duration="421" Plays="900000" Rating="4.9" />
+      <Song Title="Money" Duration="382" Plays="850000" Rating="4.8" />
+      <Song Title="Us and Them" Duration="462" Plays="700000" Rating="4.9" />
+      <Song Title="Brain Damage" Duration="226" Plays="500000" Rating="4.7" />
+    </Album>
+  </Artist>
+  <Artist Name="Unknown Band">
+    <Album Title="Demo Album" Year="2027" ListenCount="20000">
+      <Song Title="Bad Track" Duration="120" Plays="100" Rating="2.1" />
+      <Song Title="Average Track" Duration="180" Plays="500" Rating="3.5" />
+      <Song Title="Experimental Noise" Duration="600" Plays="50" Rating="1.5" />
+    </Album>
+  </Artist>
+</MusicPlatform>

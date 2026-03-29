@@ -1,0 +1,15 @@
+/home/ivkins/Documents/dotnet-labs/lab2/bin/Debug/net10.0/lab2
+/home/ivkins/Documents/dotnet-labs/lab2/bin/Debug/net10.0/lab2.deps.json
+/home/ivkins/Documents/dotnet-labs/lab2/bin/Debug/net10.0/lab2.runtimeconfig.json
+/home/ivkins/Documents/dotnet-labs/lab2/bin/Debug/net10.0/lab2.dll
+/home/ivkins/Documents/dotnet-labs/lab2/bin/Debug/net10.0/lab2.pdb
+/home/ivkins/Documents/dotnet-labs/lab2/obj/Debug/net10.0/lab2.GeneratedMSBuildEditorConfig.editorconfig
+/home/ivkins/Documents/dotnet-labs/lab2/obj/Debug/net10.0/lab2.AssemblyInfoInputs.cache
+/home/ivkins/Documents/dotnet-labs/lab2/obj/Debug/net10.0/lab2.AssemblyInfo.cs
+/home/ivkins/Documents/dotnet-labs/lab2/obj/Debug/net10.0/lab2.csproj.CoreCompileInputs.cache
+/home/ivkins/Documents/dotnet-labs/lab2/obj/Debug/net10.0/lab2.sourcelink.json
+/home/ivkins/Documents/dotnet-labs/lab2/obj/Debug/net10.0/lab2.dll
+/home/ivkins/Documents/dotnet-labs/lab2/obj/Debug/net10.0/refint/lab2.dll
+/home/ivkins/Documents/dotnet-labs/lab2/obj/Debug/net10.0/lab2.pdb
+/home/ivkins/Documents/dotnet-labs/lab2/obj/Debug/net10.0/lab2.genruntimeconfig.cache
+/home/ivkins/Documents/dotnet-labs/lab2/obj/Debug/net10.0/ref/lab2.dll
