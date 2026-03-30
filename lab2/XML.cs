@@ -12,6 +12,7 @@ public static class XML
         writer.WriteStartDocument();
         writer.WriteStartElement("MusicPlatform");
 
+        //artist input
         while (true)
         {
             Console.WriteLine("Enter artist name or 'exit' to quit");
@@ -22,6 +23,7 @@ public static class XML
             writer.WriteStartElement("Artist");
             writer.WriteAttributeString("Artist", artist);
 
+            //album input
             while (true)
             {
                 Console.WriteLine("Enter album name or 'exit' to quit");
@@ -32,14 +34,10 @@ public static class XML
                 Console.WriteLine("Enter the release year");
                 string year = Console.ReadLine();
 
-                Console.WriteLine("Enter total streams count");
-                string listenCount = Console.ReadLine();
+                // xml writer works as a stream, so we have to temporarily store all songs to dynamically calculate ListenCount later
+                var albumSongs = new List<(string Title, int Plays, string Rating)>();
 
-                writer.WriteStartElement("Album");
-                writer.WriteAttributeString("Title", album);
-                writer.WriteAttributeString("Year", year);
-                writer.WriteAttributeString("ListenCount", listenCount);
-
+                //song input
                 while (true)
                 {
                     Console.WriteLine("Enter song name or 'exit' to quit");
@@ -48,17 +46,32 @@ public static class XML
                         break;
 
                     Console.WriteLine("Enter the amount of streams");
-                    string plays = Console.ReadLine();
+                    int.TryParse(Console.ReadLine(), out int plays);
 
                     Console.WriteLine("Enter the song rating");
                     string rating = Console.ReadLine();
 
+                    albumSongs.Add((song, plays, rating));
+                }
+
+                // count total listen count
+                long totalListenCount = albumSongs.Sum(s => (long)s.Plays);
+
+                writer.WriteStartElement("Album");
+                writer.WriteAttributeString("Title", album);
+                writer.WriteAttributeString("Year", year);
+                writer.WriteAttributeString("ListenCount", totalListenCount.ToString());
+
+                // write all songs
+                foreach (var s in albumSongs)
+                {
                     writer.WriteStartElement("Song");
-                    writer.WriteAttributeString("Title", song);
-                    writer.WriteAttributeString("Plays", plays);
-                    writer.WriteAttributeString("Rating", rating);
+                    writer.WriteAttributeString("Title", s.Title);
+                    writer.WriteAttributeString("Plays", s.Plays.ToString());
+                    writer.WriteAttributeString("Rating", s.Rating);
                     writer.WriteEndElement();
                 }
+
                 writer.WriteEndElement();
             }
             writer.WriteEndElement();
@@ -101,7 +114,7 @@ public static class XML
 
     public static void DisplayData(string filename)
     {
-        XDocument xmlDoc = XDocument.Load(filename);
+        var xmlDoc = XDocument.Load(filename);
 
         foreach (XElement artist in xmlDoc.Root.Elements("Artist"))
         {
@@ -128,6 +141,10 @@ public static class XML
         //get total song count
         var allSongTitles = doc.Descendants("Song").Select(s => s.Attribute("Title")?.Value);
         Console.WriteLine($"1. Total amount of songs: {allSongTitles.Count()}");
+        foreach (var title in allSongTitles)
+        {
+            Console.WriteLine(title);
+        }
 
         //get songs longer than 5 minutes
         var longSongs = doc.Descendants("Song")
@@ -140,10 +157,73 @@ public static class XML
             .OrderBy(a => (int)a.Attribute("Year"))
             .Select(a => $"{a.Attribute("Title")?.Value} ({a.Attribute("Year")?.Value})");
         Console.WriteLine($"3. Albums sorted by release year: {string.Join(", ", albums)}");
+
+        //get total song streams
+        var totalStreams = doc.Descendants("Song").Sum(s => (int)s.Attribute("Plays"));
+        Console.WriteLine($"4. Total amount of streams: {totalStreams}");
+
+        //get the first album with the song rating of 5
+        var firstAlbum = doc.Descendants("Album")
+            .FirstOrDefault(a => a.Elements("Song").Any(s => (double)s.Attribute("Rating") == 5));
+        Console.WriteLine(
+            $"5. First album with the song rating of 5: {firstAlbum?.Attribute("Title")?.Value}"
+        );
+
+        //group songs by their genre
+        var songsByGenre = doc.Descendants("Song")
+            .GroupBy(s => s.Attribute("GenreId")?.Value)
+            .Select(g => new { GenreId = g.Key, Count = g.Count() });
+        Console.WriteLine("6. Groups of songs by genre:");
+        foreach (var g in songsByGenre)
+            Console.WriteLine($"   ID {g.GenreId}: {g.Count} songs");
+
+        //get artists with albums that have > 1 million streams
+        var artistsWithMillionAlbums = doc.Descendants("Artist")
+            .Select(artist => new
+            {
+                Name = artist.Attribute("Name")?.Value,
+                MillionCount = artist
+                    .Elements("Album")
+                    .Count(album => (long)album.Attribute("ListenCount") > 1000000),
+            })
+            .Where(a => a.MillionCount > 0)
+            .OrderByDescending(a => a.MillionCount);
+
+        Console.WriteLine("Artists with albums > 1,000,000 streams:");
+        foreach (var item in artistsWithMillionAlbums)
+        {
+            Console.WriteLine($"- {item.Name}: {item.MillionCount} album(s)");
+        }
+
+        //get songs in the most popular albums and have the most streams
+        var query = doc.Descendants("Album")
+            .OrderByDescending(a => (long)a.Attribute("ListenCount"))
+            .Take(3)
+            .SelectMany(a => a.Elements("Song"))
+            .OrderByDescending(s => (long)s.Attribute("Plays"))
+            .Select(s => new
+            {
+                Title = s.Attribute("Title")?.Value,
+                Plays = s.Attribute("Plays")?.Value,
+                AlbumTitle = s.Parent?.Attribute("Title")?.Value,
+            });
+
+        Console.WriteLine("\nTop songs from most popular albums:");
+        foreach (var item in query)
+        {
+            Console.WriteLine($"- {item.Title} (Album: {item.AlbumTitle}) - {item.Plays} plays");
+        }
     }
 
     public static void LoadData(string filename)
     {
+        var genres = new List<Genre>
+        {
+            new(1, "Grunge"),
+            new(2, "Nu Metal"),
+            new(3, "Prog Rock"),
+            new(4, "Electronic"),
+        };
         var artists = new List<Artist>
         {
             new(1, "Nirvana"),
@@ -154,12 +234,12 @@ public static class XML
 
         var albums = new List<Album>
         {
-            new(1, "Nevermind", 1, 1991, 1500000),
-            new(2, "In Utero", 1, 1993, 1100000),
-            new(3, "Hybrid Theory", 2, 2000, 2500000),
-            new(4, "Meteora", 2, 2003, 800000),
-            new(5, "The Dark Side of the Moon", 3, 1973, 3000000),
-            new(6, "Demo Album", 4, 2027, 650),
+            new(1, "Nevermind", 1, 1991, 0),
+            new(2, "In Utero", 1, 1993, 0),
+            new(3, "Hybrid Theory", 2, 2000, 0),
+            new(4, "Meteora", 2, 2003, 0),
+            new(5, "The Dark Side of the Moon", 3, 1973, 0),
+            new(6, "Demo Album", 4, 2027, 0),
         };
 
         var songs = new List<Song>
@@ -208,12 +288,17 @@ public static class XML
                 var artistAlbums = albums.Where(a => a.ArtistId == artist.Id);
                 foreach (var album in artistAlbums)
                 {
+                    // 1. get songs from the albums by album id
+                    var albumSongs = songs.Where(s => s.AlbumId == album.Id).ToList();
+
+                    // 2. count total listen count
+                    long dynamicListenCount = albumSongs.Sum(s => (long)s.Plays);
+
                     writer.WriteStartElement("Album");
                     writer.WriteAttributeString("Title", album.Title);
                     writer.WriteAttributeString("Year", album.Year.ToString());
-                    writer.WriteAttributeString("ListenCount", album.ListenCount.ToString());
+                    writer.WriteAttributeString("ListenCount", dynamicListenCount.ToString());
 
-                    var albumSongs = songs.Where(s => s.AlbumId == album.Id);
                     foreach (var song in albumSongs)
                     {
                         writer.WriteStartElement("Song");
@@ -221,13 +306,13 @@ public static class XML
                         writer.WriteAttributeString("Duration", song.Duration.ToString());
                         writer.WriteAttributeString("Plays", song.Plays.ToString());
                         writer.WriteAttributeString("Rating", song.Rating.ToString());
+                        writer.WriteAttributeString("GenreId", song.GenreId.ToString());
                         writer.WriteEndElement();
                     }
                     writer.WriteEndElement();
                 }
                 writer.WriteEndElement();
             }
-
             writer.WriteEndElement();
             writer.WriteEndDocument();
         }
