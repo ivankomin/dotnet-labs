@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/ivkins/Documents/dotnet-labs/lab2/lab2.csproj": {}
+    "/home/ivkins/Documents/dotnet-labs/lab3/lab3.csproj": {}
   },
   "projects": {
-    "/home/ivkins/Documents/dotnet-labs/lab2/lab2.csproj": {
+    "/home/ivkins/Documents/dotnet-labs/lab3/lab3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ivkins/Documents/dotnet-labs/lab2/lab2.csproj",
-        "projectName": "lab2",
-        "projectPath": "/home/ivkins/Documents/dotnet-labs/lab2/lab2.csproj",
+        "projectUniqueName": "/home/ivkins/Documents/dotnet-labs/lab3/lab3.csproj",
+        "projectName": "lab3",
+        "projectPath": "/home/ivkins/Documents/dotnet-labs/lab3/lab3.csproj",
         "packagesPath": "/home/ivkins/.nuget/packages/",
-        "outputPath": "/home/ivkins/Documents/dotnet-labs/lab2/obj/",
+        "outputPath": "/home/ivkins/Documents/dotnet-labs/lab3/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/ivkins/.nuget/NuGet/NuGet.Config"

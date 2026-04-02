@@ -6,6 +6,9 @@ public class MusicPlatformDto
 {
     [XmlElement("Artist")]
     public List<ArtistDto> Artists { get; set; } = [];
+
+    [XmlElement("User")]
+    public List<UserDto> Users { get; set; } = new();
 }
 
 public class ArtistDto
@@ -36,6 +39,21 @@ public class SongDto
 
     [XmlAttribute("Rating")]
     public double Rating { get; set; }
+}
+
+public class UserDto
+{
+    [XmlAttribute("Username")]
+    public required string Username { get; set; }
+
+    [XmlElement("HistoryItem")]
+    public List<HistoryItemDto> History { get; set; } = new();
+}
+
+public class HistoryItemDto
+{
+    [XmlAttribute("TrackTitle")]
+    public required string TrackTitle { get; set; }
 }
 
 public record Genre(int Id, string Name);

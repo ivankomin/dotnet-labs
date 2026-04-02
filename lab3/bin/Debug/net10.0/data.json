@@ -1,0 +1,118 @@
+{
+  "Artists": [
+    {
+      "Name": "Nirvana (Legendary Edition)",
+      "Albums": [
+        {
+          "Title": "Nevermind",
+          "Year": 1991,
+          "ListenCount": 1550000,
+          "Songs": [
+            {
+              "Title": "Smells Like Teen Spirit",
+              "Duration": 301,
+              "Plays": 600000,
+              "Rating": 5
+            },
+            {
+              "Title": "Come As You Are",
+              "Duration": 219,
+              "Plays": 450000,
+              "Rating": 4.8
+            },
+            {
+              "Title": "Lithium",
+              "Duration": 257,
+              "Plays": 350000,
+              "Rating": 4.7
+            },
+            {
+              "Title": "Polly",
+              "Duration": 177,
+              "Plays": 150000,
+              "Rating": 4.2
+            }
+          ]
+        },
+        {
+          "Title": "In Utero",
+          "Year": 1993,
+          "ListenCount": 950000,
+          "Songs": [
+            {
+              "Title": "Heart-Shaped Box",
+              "Duration": 281,
+              "Plays": 400000,
+              "Rating": 4.9
+            },
+            {
+              "Title": "All Apologies",
+              "Duration": 231,
+              "Plays": 300000,
+              "Rating": 4.6
+            },
+            {
+              "Title": "Rape Me",
+              "Duration": 170,
+              "Plays": 250000,
+              "Rating": 4.4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Linkin Park",
+      "Albums": [
+        {
+          "Title": "Hybrid Theory",
+          "Year": 2000,
+          "ListenCount": 2900000,
+          "Songs": [
+            {
+              "Title": "In the End",
+              "Duration": 216,
+              "Plays": 1200000,
+              "Rating": 5
+            },
+            {
+              "Title": "Crawling",
+              "Duration": 209,
+              "Plays": 800000,
+              "Rating": 4.9
+            },
+            {
+              "Title": "One Step Closer",
+              "Duration": 157,
+              "Plays": 500000,
+              "Rating": 4.7
+            },
+            {
+              "Title": "Papercut",
+              "Duration": 184,
+              "Plays": 400000,
+              "Rating": 4.6
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Users": [
+    {
+      "Username": "Meloman99",
+      "History": [
+        "Smells Like Teen Spirit",
+        "In the End",
+        "Smells Like Teen Spirit - Live"
+      ]
+    },
+    {
+      "Username": "RockFan",
+      "History": [
+        "Lithium",
+        "Crawling"
+      ]
+    }
+  ]
+}

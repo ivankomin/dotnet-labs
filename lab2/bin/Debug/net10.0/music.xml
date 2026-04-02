@@ -2,13 +2,7 @@
 <MusicPlatform>
   <Artist Name="Nirvana">
     <Album Title="Nevermind" Year="1991" ListenCount="1550000">
-      <Song
-        Title="Smells Like Teen Spirit"
-        Duration="301"
-        Plays="600000"
-        Rating="4.8"
-        GenreId="1"
-      />
+      <Song Title="Smells Like Teen Spirit" Duration="301" Plays="600000" Rating="5" GenreId="1" />
       <Song Title="Come As You Are" Duration="219" Plays="450000" Rating="4.8" GenreId="1" />
       <Song Title="Lithium" Duration="257" Plays="350000" Rating="4.7" GenreId="1" />
       <Song Title="Polly" Duration="177" Plays="150000" Rating="4.2" GenreId="1" />
@@ -47,4 +41,13 @@
       <Song Title="Experimental Noise" Duration="600" Plays="50" Rating="1.5" GenreId="4" />
     </Album>
   </Artist>
+  <User Username="Meloman99">
+    <HistoryItem TrackTitle="Smells Like Teen Spirit" />
+    <HistoryItem TrackTitle="In the End" />
+    <HistoryItem TrackTitle="Time" />
+  </User>
+  <User Username="RockFan">
+    <HistoryItem TrackTitle="Numb" />
+    <HistoryItem TrackTitle="Lithium" />
+  </User>
 </MusicPlatform>
