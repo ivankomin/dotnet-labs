@@ -1,0 +1,15 @@
+/home/ivkins/Documents/dotnet-labs/lab4/bin/Debug/net10.0/lab4
+/home/ivkins/Documents/dotnet-labs/lab4/bin/Debug/net10.0/lab4.deps.json
+/home/ivkins/Documents/dotnet-labs/lab4/bin/Debug/net10.0/lab4.runtimeconfig.json
+/home/ivkins/Documents/dotnet-labs/lab4/bin/Debug/net10.0/lab4.dll
+/home/ivkins/Documents/dotnet-labs/lab4/bin/Debug/net10.0/lab4.pdb
+/home/ivkins/Documents/dotnet-labs/lab4/obj/Debug/net10.0/lab4.GeneratedMSBuildEditorConfig.editorconfig
+/home/ivkins/Documents/dotnet-labs/lab4/obj/Debug/net10.0/lab4.AssemblyInfoInputs.cache
+/home/ivkins/Documents/dotnet-labs/lab4/obj/Debug/net10.0/lab4.AssemblyInfo.cs
+/home/ivkins/Documents/dotnet-labs/lab4/obj/Debug/net10.0/lab4.csproj.CoreCompileInputs.cache
+/home/ivkins/Documents/dotnet-labs/lab4/obj/Debug/net10.0/lab4.sourcelink.json
+/home/ivkins/Documents/dotnet-labs/lab4/obj/Debug/net10.0/lab4.dll
+/home/ivkins/Documents/dotnet-labs/lab4/obj/Debug/net10.0/refint/lab4.dll
+/home/ivkins/Documents/dotnet-labs/lab4/obj/Debug/net10.0/lab4.pdb
+/home/ivkins/Documents/dotnet-labs/lab4/obj/Debug/net10.0/lab4.genruntimeconfig.cache
+/home/ivkins/Documents/dotnet-labs/lab4/obj/Debug/net10.0/ref/lab4.dll
