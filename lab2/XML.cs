@@ -41,7 +41,7 @@ public static class XML
                 while (true)
                 {
                     Console.WriteLine("Enter song name or 'exit' to quit");
-                    string song = Console.ReadLine();
+                    string? song = Console.ReadLine();
                     if (song?.ToLower() == "exit" || string.IsNullOrEmpty(song))
                         break;
 
@@ -61,12 +61,12 @@ public static class XML
                 writer.WriteAttributeString("Year", year);
                 writer.WriteAttributeString("ListenCount", totalListenCount.ToString());
 
-                foreach (var s in albumSongs)
+                foreach (var (Title, Plays, Rating) in albumSongs)
                 {
                     writer.WriteStartElement("Song");
-                    writer.WriteAttributeString("Title", s.Title);
-                    writer.WriteAttributeString("Plays", s.Plays.ToString());
-                    writer.WriteAttributeString("Rating", s.Rating);
+                    writer.WriteAttributeString("Title", Title);
+                    writer.WriteAttributeString("Plays", Plays.ToString());
+                    writer.WriteAttributeString("Rating", Rating);
                     writer.WriteEndElement();
                 }
 
@@ -98,10 +98,8 @@ public static class XML
                 writer.WriteAttributeString("TrackTitle", historyTrack);
                 writer.WriteEndElement();
             }
-
             writer.WriteEndElement();
         }
-
         writer.WriteEndElement();
         writer.WriteEndDocument();
     }
@@ -117,25 +115,25 @@ public static class XML
         Console.WriteLine("Artists and Albums:");
         foreach (XmlNode artist in root.SelectNodes("Artist"))
         {
-            string name = artist.Attributes["Name"]?.Value;
+            string? name = artist.Attributes?["Name"]?.Value;
             Console.WriteLine($"Artist: {name}");
 
             foreach (XmlNode album in artist.SelectNodes("Album"))
             {
-                string title = album.Attributes["Title"]?.Value;
+                string? title = album?.Attributes?["Title"]?.Value;
                 Console.WriteLine($"  Album: {title}");
             }
         }
 
         Console.WriteLine("\nUsers and History:");
-        foreach (XmlNode user in root.SelectNodes("User"))
+        foreach (XmlNode? user in root.SelectNodes("User"))
         {
-            string? username = user.Attributes["Username"]?.Value;
+            string? username = user?.Attributes?["Username"]?.Value;
             Console.WriteLine($"User: {username}");
 
             foreach (XmlNode historyItem in user.SelectNodes("HistoryItem"))
             {
-                string? track = historyItem.Attributes["TrackTitle"]?.Value;
+                string? track = historyItem?.Attributes?["TrackTitle"]?.Value;
                 Console.WriteLine($"  - Listened to: {track}");
             }
         }
@@ -144,21 +142,19 @@ public static class XML
     public static void LoadWithSerializer(string fileName)
     {
         var serializer = new System.Xml.Serialization.XmlSerializer(typeof(MusicPlatformDto));
-        using (FileStream fs = new FileStream(fileName, FileMode.Open))
+        using FileStream fs = new(fileName, FileMode.Open);
+        var data = (MusicPlatformDto?)serializer.Deserialize(fs);
+
+        Console.WriteLine("Loaded via Serializer:");
+
+        foreach (var artist in data.Artists)
         {
-            var data = (MusicPlatformDto?)serializer.Deserialize(fs);
+            Console.WriteLine($"Artist: {artist.Name} (Albums: {artist.Albums.Count})");
+        }
 
-            Console.WriteLine("Loaded via Serializer:");
-
-            foreach (var artist in data.Artists)
-            {
-                Console.WriteLine($"Artist: {artist.Name} (Albums: {artist.Albums.Count})");
-            }
-
-            foreach (var user in data.Users)
-            {
-                Console.WriteLine($"User: {user.Username} (History: {user.History.Count} items)");
-            }
+        foreach (var user in data.Users)
+        {
+            Console.WriteLine($"User: {user.Username} (History: {user.History.Count} items)");
         }
     }
 
@@ -203,7 +199,7 @@ public static class XML
 
         //get users who listened to a specific song
         string targetSong = "Smells Like Teen Spirit";
-        var listeners = doc.Descendants("User")
+        var listeners = doc.Descendants("User") //descendants returns all children of current root, while elements returns only direct children
             .Where(u =>
                 u.Elements("HistoryItem").Any(h => h.Attribute("TrackTitle")?.Value == targetSong)
             )
